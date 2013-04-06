@@ -18,12 +18,19 @@ GET /shopping-cart
 ] }
 
 Save new products in your shopping cart
-POST /shopping-cart
+POST /shopping-cart/{id}
 > Content-Type: application/json
 { "product":"1AB23ORM", "quantity": 2 }
 < 201
 < Content-Type: application/json
 { "status": "created", "url": "/shopping-cart/2" }
+
+POST /shopping-cart/42
+> Content-Type: application/json
+{ "product":"1AB23ORM", "quantity": 1 }
+< 400
+< Content-Type: application/json
+{ "status": "failed" }
 
 
 -- Payment Resources --
